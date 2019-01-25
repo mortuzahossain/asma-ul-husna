@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:asmaulhusna/models/name_mode.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class NameDetails extends StatelessWidget {
 
@@ -29,6 +31,10 @@ class NameDetails extends StatelessWidget {
               data.meaning,
               style: TextStyle(fontSize: 25.0),
             ),
+            Text(
+              data.description,
+              style: TextStyle(fontSize: 25.0),
+            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Row(
@@ -42,7 +48,11 @@ class NameDetails extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
                   ),
                   RaisedButton.icon(
-                    onPressed: (){},
+                    onPressed: () async{
+                      var url = data.externalLink;
+                      if (await canLaunch(url))await launch(url);
+                      else throw 'Could not launch $url';
+                    },
                     icon: Center(child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Icon(Icons.launch),

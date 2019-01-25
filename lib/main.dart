@@ -6,6 +6,7 @@ import 'dart:convert';
 
 void main() => runApp(
   MaterialApp(
+    debugShowCheckedModeBanner: false,
     title: '99 Names of Allah',
     theme: ThemeData.dark(),
     home: Home(),
@@ -36,7 +37,8 @@ class _HomeState extends State<Home> {
           crossAxisCount:2,
           childAspectRatio: 0.80,
           children: List.generate(data.length, (index) {
-            return getStructuredGridCell(context,Name(data[index][1],data[index][2],data[index][3],data[index][4],data[index][5]));
+            // return getStructuredGridCell(context,Name(data[index][1],data[index][2],data[index][3],data[index][4],data[index][5]));
+            return getStructuredGridCell(context,Name(data[index][1],data[index][2],data[index][3], data[index][4],data[index][5],data[index][6]));
           })
         ),
       ),

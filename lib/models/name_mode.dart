@@ -4,12 +4,13 @@ class Name {
   String _meaning;
   String _audio;
   String _link;
-
-  Name(this._name,this._nameEn,this._meaning,this._audio,this._link);
+  String _description;
+  Name(this._name,this._nameEn,this._meaning,this._description,this._audio,this._link);
 
   String get externalLink => _link;
   String get audio => _audio;
   String get meaning => _meaning;
   String get nameEn => _nameEn;
   String get name => _name;
+  String get description => _description;
 }
