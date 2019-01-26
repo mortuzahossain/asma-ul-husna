@@ -31,10 +31,6 @@ class NameDetails extends StatelessWidget {
               data.meaning,
               style: TextStyle(fontSize: 25.0),
             ),
-            Text(
-              data.description,
-              style: TextStyle(fontSize: 25.0),
-            ),
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: Row(
@@ -61,6 +57,18 @@ class NameDetails extends StatelessWidget {
                   )
                 ],
               ),
+            ),
+            Card(
+              margin: EdgeInsets.all(10.0),
+              elevation: 10.0,
+              child: 
+                Container(
+                  margin: EdgeInsets.all(10.0),
+                  child: Text(
+                    data.description,
+                    style: TextStyle(fontSize: 20.0),
+                  ),
+                ),
             )
           ],
         ),
