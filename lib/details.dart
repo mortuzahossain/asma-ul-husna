@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:asmaulhusna/models/name_mode.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 class NameDetails extends StatelessWidget {
 
   final Name data;
@@ -37,7 +36,14 @@ class NameDetails extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   FloatingActionButton(
-                    onPressed: (){},
+                    onPressed: () async{
+                      //AudioPlayer audioPlayer = new AudioPlayer();
+                      //await audioPlayer.play(data.audio);
+                      // print(data.audio);
+                      var url = data.audio;
+                      if (await canLaunch(url))await launch(url);
+                      else throw 'Could not launch $url';
+                    },
                     child: Icon(Icons.play_arrow),
                   ),
                   Padding(

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:asmaulhusna/data/data.dart';
 import 'package:asmaulhusna/models/name_mode.dart';
 import 'dart:convert';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -30,6 +32,17 @@ class _HomeState extends State<Home> {
         title: Text('99 Names of Allah'),
         centerTitle: true,
         primary: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(FontAwesomeIcons.facebook),
+            onPressed: () async{
+              // launch for more app
+              var url = "https://www.facebook.com/mdmortuza.hossain";
+              if (await canLaunch(url))await launch(url);
+              else throw 'Could not launch $url';
+            },
+          )
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(8.0),
